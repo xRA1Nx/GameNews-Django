@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="discription" content="Новостной игровой портал" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./imgs/icons/logo.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/pagination.css" />
+    <link rel="stylesheet" href="./css/grid.css" />
+    <link rel="stylesheet" href="./css/a-side.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/post.css" />
+    <link rel="stylesheet" href="./css/mqueries.css" />
+
+    <title>Games Portal</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-top" id="top">
+        <div class="container header-top-section">
+          <div class="header-left">
+            <a class="home" href="./index.html">
+              <img
+                class="icon icon-logo"
+                src="./imgs/icons/logo.svg"
+                alt="logo icon"
+              />
+              <span class="logo-text-first">Game</span>
+              <span class="logo-text-second">News</span>
+            </a>
+            <nav class="contacts-nav">
+              <!-- *************************** -->
+              <!--  CONTACT-ICONS  -->
+              <!-- *************************** -->
+
+              <ul class="nav-list contacts-nav-list">
+                <li>
+                  <a href="https://vk.com/" target="_blank">
+                    <img
+                      class="icon icon-contacts"
+                      src="./imgs/icons/contacts/vk.svg"
+                      alt="vk icon"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/" target="_blank">
+                    <img
+                      class="icon icon-contacts"
+                      src="./imgs/icons/contacts/youtube.svg"
+                      alt="youtube icon"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/" target="_blank">
+                    <img
+                      class="icon icon-contacts"
+                      src="./imgs/icons/contacts/twitter.svg"
+                      alt="twitter icon"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://steamcommunity.com/" target="_blank">
+                    <img
+                      class="icon icon-contacts"
+                      src="./imgs/icons/contacts/steam.svg"
+                      alt="steam icon"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-right">
+            <button class="btn-header-nav btn-nav-border">
+              <ion-icon
+                name="menu-outline"
+                class="nav-menu-icons menu-enter"
+              ></ion-icon>
+              <ion-icon
+                name="close-outline"
+                class="nav-menu-icons menu-exit"
+              ></ion-icon>
+            </button>
+
+            <nav class="nav-menu">
+              <ul class="nav-menu-list">
+                <li>
+                  <a class="need-to-autorized" href="./sign-in.html">Войти</a>
+                  <ion-icon
+                    class="nav-bar-ion-icon"
+                    name="person-outline"
+                  ></ion-icon>
+                </li>
+                <li>
+                  <a class="need-to-autorized" href="./registration.html"
+                    >Регистрация</a
+                  >
+                  <ion-icon
+                    class="nav-bar-ion-icon"
+                    name="person-add-outline"
+                  ></ion-icon>
+                </li>
+                <li>
+                  <a class="need-to-autorized" href="./create.html"
+                    >Написать статью</a
+                  >
+                  <ion-icon
+                    class="nav-bar-ion-icon"
+                    name="create-outline"
+                  ></ion-icon>
+                </li>
+                <li>
+                  <a class="need-to-autorized" href="./subscriptions.html"
+                    >Подписки</a
+                  >
+                  <ion-icon
+                    class="nav-bar-ion-icon"
+                    name="book-outline"
+                  ></ion-icon>
+                </li>
+              </ul>
+            </nav>
+
+            <form class="header-form-search">
+              <input
+                type="text"
+                placeholder="ПОИСК"
+                class="header-input-search"
+              />
+              <button class="header-input-submit">
+                <img
+                  src="./imgs/icons/search.svg"
+                  class="header-img-search"
+                  alt="search icon"
+                />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- *************************** -->
+      <!--  GAME-ICONS  -->
+      <!-- *************************** -->
+
+      <div class="header-bottom">
+        <nav class="game-icons container">
+          <ul class="nav-list game-icons-list">
+            <li>
+              <a href="#">
+                <img
+                  class="game-icon icons"
+                  src="./imgs/icons/games/Diablo.svg"
+                  alt="diablo icon"
+                />
+              </a>
+              <a class="game-name" href="#">Diablo</a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  class="game-icon icons"
+                  src="./imgs/icons/games/Overwatch.svg"
+                  alt="Overwatch icon"
+                />
+              </a>
+              <a href="#" class="game-name">Overwatch</a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  class="game-icon icons"
+                  src="./imgs/icons/games/Hots.svg"
+                  alt="Herous of the storm icon"
+                />
+              </a>
+              <a href="#" class="game-name">Herous of the storm</a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  class="game-icon icons"
+                  src="./imgs/icons/games/Starcraft_2.svg"
+                  alt="Starcraft 2 icon"
+                />
+              </a>
+              <a href="#" class="game-name">Starcraft</a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  class="game-icon icons"
+                  src="./imgs/icons/games/Hearthstone.svg"
+                  alt="Hearthstone icon"
+                />
+              </a>
+              <a href="#" class="game-name">Hearthstone</a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  class="game-icon icons"
+                  src="./imgs/icons/games/WoW.svg"
+                  alt="World of Warcraft icon"
+                />
+              </a>
+              <a href="#" class="game-name">World of Warcraft</a>
+            </li>
+            <li>
+              <a href="#">
+                <img
+                  class="game-icon icons"
+                  src="./imgs/icons/games/Other_Games.svg"
+                  alt="Other Games"
+                />
+              </a>
+              <a href="#" class="game-name">Другие игры</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container container-main" id="main">
+      <section class="grid grid3" id="grid-section">
+        <div class="main-header">
+          <span class="main-header-logo-first">Game</span>
+          <span class="main-header-logo-second">News</span>
+        </div>
+        <div class="main-news">
+          <a class="post-link" href="./post.html">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/Warcraft-Arclight-Rumble-placeholder-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Warcraft Arclight Rumble: новая мобильная игра от Blizzard
+              Entertainment
+            </h2>
+          </a>
+
+          <p class="news-container">
+            Добавлено видео игрового процесса. Blizzard Entertainment
+            анонсировала Warcraft Arclight Rumble - мобильную условно бесплатную
+            экшен-стратегию для устройств под управлением iOS и Android.
+            Бета-тестирование игры начнется уже в ближайшее время.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 03/05/2022 22:36</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">15</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/diablol-2-animation.gif"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Анимационный сериал Diablol 2 от Carbot Animations
+            </h2>
+          </a>
+          <p class="news-container">
+            Добавлен 47-й эпизод. Diablol 2 — анимационный сериал от студии
+            Carbot Animations, эпизоды которого посвящены забавным ситуациям,
+            героям и боссам, непростым взаимоотношениям персонажей и разным
+            механикам второй части игр серии Diablo.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 30/04/2022 20:00</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">41</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/warcraft-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Слух: Blizzard работала над двумя мобильными играми Warcraft
+            </h2>
+          </a>
+          <p class="news-container">
+            Джейсон Шрайер c сайта Bloomberg со ссылкой на свои источники
+            сообщил, что Blizzard Entertainment работала над двумя мобильными
+            играми во вселенной Warcraft. По словам журналиста, до завершающего
+            этапа разработки и анонса добралась только одна.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 30/04/2022 9:11</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">33</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/Blizzard-Battle.net-Update-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Battle.net: поддержка новых валют
+            </h2>
+          </a>
+          <p class="news-container">
+            Компания Blizzard Entertainment разослала игрокам электронное
+            письмо, в котором сообщила, что в ближайшем будущем в Battle.net
+            появится поддержка четырех новых валют, включая украинскую гривну,
+            казахстанский тенге и грузинский лари.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 30/04/2022 9:11</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">11</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/warcraft-thumb.jpg"
+                alt="news img"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Warcraft Mobile: анонс игры состоится 3 мая
+            </h2>
+          </a>
+          <p class="news-container">
+            Компания Blizzard объявила, что 3 мая в 20:00 МСК состоится
+            официальный анонс мобильной игры во вселенной Warcraft. В первую
+            очередь мобильный Warcraft покажут на специальном сайте, на котором
+            пройдет трансляция с анонсом или будет опубликовано вступительное
+            видео игры.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 28/04/2022 21:18</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">24</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/diablo-immortal-datamining-armor-sets-thum5.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Diablo Immortal: датамайн комплектов экипировки
+            </h2>
+          </a>
+          <p class="news-container">
+            Добавлен декоративный комплект Ghosts of Ashwold. Датамайнеры с
+            сайта wowhead.com раскопали в файлах последней версии клиента Diablo
+            Immortal для тестирования внешний вид комплектов экипировки всех
+            доступных классов.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 27/04/2022 23:55</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">25</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/diablo-immortal-a-new-plane-of-hell-opens-for-mobile-and-pc-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Diablo Immortal: дата выхода и версия для ПК
+            </h2>
+          </a>
+          <p class="news-container">
+            Добавлено видео игрового процесса версии игры для ПК. Разработчики
+            Diablo Immortal анонсировали дату выхода, а также версию игры для
+            ПК. Начать борьбу с демоническими силами Скарна и узнать о событиях,
+            происходивших между Diablo II и Diablo III можно будет уже 2 июня.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 26/04/2022 22:36</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">12</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/overwatch-2-pvp-beta-begins-late-april-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Warcraft Arclight Rumble: новая мобильная игра от Blizzard
+              Entertainment
+            </h2>
+          </a>
+          <p class="news-container">
+            Добавлены вопросы и ответы, а также программа Twitch Drops.
+            Разработчики Overwatch 2 объявили о том, что в конце апреля
+            начинается бета-тестирование PVP-режима игры. Тестировать будут
+            нового героя Соджорн, 4 новых поля боя, новый режим «Натиск» и
+            разные игровые системы.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 25/04/2022 22:00</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">33</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-news">
+          <a class="post-link" href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/Warcraft-Arclight-Rumble-placeholder-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Explicabo, impedit.
+            </h2>
+          </a>
+          <p class="news-container">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam,
+            velit. Soluta, aperiam quam. Beatae reprehenderit sint saepe. Minima
+            perspiciatis quisquam ex incidunt fuga ullam, ducimus voluptas
+            accusamus nesciunt repellat atque, esse asperiores rem ut magnam.
+          </p>
+          <div class="post-footer">
+            <div class="footer-post-details">
+              <span class="post-date-time"> 27/04/2022 23:55</span>
+              <span class="author"> xRa1Nx</span>
+            </div>
+            <div class="footer-comment-details">
+              <img
+                class="icon comment-icon"
+                src="./imgs/Comments.svg"
+                alt="comment icon"
+              />
+              <a class="link-comment-count" href="#">25</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <button class="btn-pag btn-pag-left">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="pag-btn-icon icon-left"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              alt="page before"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <a href="#" class="pag-link">1</a>
+          <a href="#" class="pag-link">2</a>
+          <a href="#" class="pag-link">3</a>
+          <a href="#" class="pag-link">4</a>
+          <a href="#" class="pag-link">5</a>
+          <a href="#" class="pag-link">6</a>
+          <span>...</span>
+          <a href="#" class="pag-link">23</a>
+
+          <button class="btn-pag btn-pag-right">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="pag-btn-icon icon-right"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              alt="page after"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <aside class="aside-right">
+        <div class="hot-watched-discussed">
+          <p>
+            <a class="link-hwd link-hot-disscused" href="#">Top обсуждаемые</a>
+            <a class="link-hwd link-hot-watched" href="#">Top просмотров</a>
+          </p>
+        </div>
+        <div class="main-news">
+          <a href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/warcraft-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Слух: Blizzard работала над двумя мобильными играми Warcraft
+            </h2>
+          </a>
+        </div>
+        <div class="main-news">
+          <a href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/diablo-immortal-a-new-plane-of-hell-opens-for-mobile-and-pc-thumb.jpg"
+                alt="news image"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Diablo Immortal: дата выхода и версия для ПК
+            </h2>
+          </a>
+        </div>
+        <div class="main-news">
+          <a href="#">
+            <div class="img-container">
+              <img
+                class="news-img"
+                src="./imgs/News/warcraft-thumb.jpg"
+                alt="news img"
+              />
+            </div>
+            <h2 class="h2-news news-default-setings">
+              Warcraft Mobile: анонс игры состоится 3 мая
+            </h2>
+          </a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-top">
+        <div class="container footer-top-section">
+          <div class="footer-left">
+            <span class="logo-text-first">Game</span>
+            <span class="logo-text-second">News</span>
+          </div>
+          <div class="footer-right">
+            <span class="foter-copyright-text">
+              Данный учебный проект сделан на основе сайта
+              <strong>GlassCannon.ru</strong>
+            </span>
+          </div>
+        </div>
+
+        <div class="container footer-bottom-section">
+          <nav class="contacts-nav">
+            <ul class="nav-list contacts-footer">
+              <!-- <li>
+                <a class="footer-contact-link" href="#">
+                  <img
+                    class="icon footer-icon-contacts"
+                    src="./imgs/icons/contacts/rss.svg"
+                    alt="rss icon"
+                  />
+                  <span>RSS</span>
+                </a>
+              </li> -->
+              <li>
+                <a
+                  class="footer-contact-link"
+                  href="https://vk.com/"
+                  target="_blank"
+                >
+                  <img
+                    class="icon footer-icon-contacts"
+                    src="./imgs/icons/contacts/vk.svg"
+                    alt="vk icon"
+                  />
+                  <span>ВКонтакте</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="footer-contact-link"
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                >
+                  <img
+                    class="icon footer-icon-contacts"
+                    src="./imgs/icons/contacts/youtube.svg"
+                    alt="youtube icon"
+                  />
+                  <span>YouTube </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="footer-contact-link"
+                  href="https://twitter.com/"
+                  target="_blank"
+                >
+                  <img
+                    class="icon footer-icon-contacts"
+                    src="./imgs/icons/contacts/twitter.svg"
+                    alt="twitter icon"
+                  />
+                  <span>Twitter </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="footer-contact-link"
+                  href="https://steamcommunity.com/"
+                  target="_blank"
+                >
+                  <img
+                    class="icon footer-icon-contacts"
+                    src="./imgs/icons/contacts/steam.svg"
+                    alt="steam icon"
+                  />
+                  <span>Steam </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="./scripts/script.js"></script>
+  </body>
+</html>
