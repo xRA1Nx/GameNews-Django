@@ -1,0 +1,46 @@
+{% extends "default.html"%}
+{% load static%}
+
+{% block title %}
+Games Portal Статья
+{% endblock title %}
+
+
+{% block section %}
+
+<section class="white-section">
+    <div class="forms-box">
+    <h1 class="h1-white h1-white-margin-b">
+      Разместить статью
+    </h1>
+        <form class="reuse-form" action="" method="post">
+        {% csrf_token%}
+        {{form.as_p}}
+        <input class="inp-submit" type="submit" value="разместить">
+        </form>
+    </div>
+  </section>
+
+    {% block pagination %}
+    {%endblock pagination %}
+
+</section>
+{%endblock section %}
+
+
+{% block aside%}
+{% for post in aside_posts %}
+
+<div class="main-news">
+    <a class='post-link' href='#'>
+        <div class='img-container'>
+            <img class='news-img' src='{{post.small_img}}' alt='news image'/>
+        </div>
+        <h2 class='h2-news news-default-setings'>{{post.title}}</h2></a>
+</div>
+{% endfor %}
+
+
+
+
+    {% endblock aside%}

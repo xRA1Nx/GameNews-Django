@@ -1,0 +1,52 @@
+{% extends "default.html"%}
+{% load static%}
+
+{% block section %}
+<section class="grid grid3" id="grid-section">
+    {% block grid %}
+
+    {% for post in news %}
+
+
+    <div class='main-news'>
+        <a class='post-link' href='{% url "post-link" post.id %}'>
+            <div class='img-container'>
+                <img class='news-img' src='{{ post.small_img }}' alt='news image'/>
+            </div>
+            <h2 class='h2-news news-default-setings'> {{ post.title }}</h2>
+        </a>
+
+        <p class='news-container'>{{ post.description }}</p>
+        <div class="post-footer">
+            <div class="footer-post-details">
+                <span class="post-date-time">{{post.date_time|date:"d.m.Yг."}}</span>
+                <span class="author">{{post.user.username}}</span>
+            </div>
+            <div class="footer-comment-details">
+                <img class="icon comment-icon" src="{% static './imgs/Comments.svg' %}" alt="comment icon"/>
+
+                <a class='link-comment-count' href='#'>{{post.comment_set.count}}</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    {%endblock grid %}
+</section>
+    {% endblock section %}
+
+    {% block aside%}
+    <aside class="aside-right">
+    {% for post in aside_posts %}
+
+    <div class="main-news">
+        <a class='post-link' href='#'>
+            <div class='img-container'>
+                <img class='news-img' src='{{post.small_img}}' alt='news image'/>
+            </div>
+            <h2 class='h2-news news-default-setings'>{{post.title}}</h2></a>
+    </div>
+
+    {% endfor %}
+         </aside>
+    {% endblock aside%}

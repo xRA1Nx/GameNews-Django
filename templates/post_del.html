@@ -1,0 +1,28 @@
+{% extends "default.html"%}
+{% load static%}
+
+{% block title %}
+Games Portal Статья
+{% endblock title %}
+
+
+{% block section %}
+
+
+<section class="white-section">
+    <div class="forms-box">
+        <h1 class="h1-white h1-white-margin-b">
+            Внимание!!! Данная новость будет удалена !!!
+        </h1>
+        <h2>
+            <form method="post">
+                {% csrf_token%}
+                {{form}}
+                <input class="inp-submit" type="submit" value="удалить">
+            </form>
+        </h2>
+    </div>
+
+</section>
+
+{% endblock section %}

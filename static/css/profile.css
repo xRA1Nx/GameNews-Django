@@ -1,0 +1,117 @@
+/***************************/
+/* MAIN BOX */
+/***************************/
+.lk-box {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #444;
+}
+
+.lk-box a:link,
+.lk-box a:visited {
+  display: inline-block;
+}
+
+/***************************/
+/* USERS PROFILE */
+/***************************/
+
+.user-data {
+  display: flex;
+  gap: 4.8rem;
+  margin-bottom: 3.6rem;
+}
+.user-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-avatar nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.user-avatar-img {
+  display: block;
+  width: 11.5rem;
+  height: 11.5rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.p-row-action {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.white-section-100 .profile-button a:link,
+.white-section-100 .profile-button a:visited {
+  padding: 0.1rem 0.6rem;
+  border-radius: 7px;
+  color: #fff;
+  transition: all 0.5s;
+  font-size: 1.2rem;
+  background-color: #b77a11;
+}
+
+.white-section-100 .profile-button.exit-link a:link,
+.white-section-100 .profile-button.exit-link a:visited {
+  background-color: red;
+}
+
+/***************************/
+/* PROFILE MAIN*/
+/***************************/
+
+/* subsribtions*/
+.subsribtions {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 2.4rem;
+}
+
+.subsribtions-title {
+  font-weight: 500;
+  font-size: 1.8rem;
+  font-weight: 500rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.05;
+}
+
+.subscriptions-list {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 1.2rem;
+  column-gap: 1.2rem;
+}
+
+.subscriptions-list span {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.subscriptions-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/***************************/
+/* FORMS */
+/***************************/
+.change-profile-attention {
+  color: #f03e3e;
+}

@@ -1,0 +1,287 @@
+/***************************/
+/* MAIN SECTIONS */
+/***************************/
+
+header {
+  background-color: #000;
+  color: rgba(255, 255, 255, 0.66);
+  margin-bottom: 9.6rem;
+  /* min-width: 80rem; */
+}
+
+.header-top {
+  border-bottom: 0.1rem solid #4c4c4c;
+  padding: 0.2rem 0;
+}
+
+.container.header-top-section {
+  padding: 0.3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.header-left a,
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-bottom {
+  border-bottom: 0.7rem solid #b77a11;
+}
+
+/***************************/
+/* LOGO */
+/***************************/
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text-first,
+.logo-text-second {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.logo-text-first {
+  color: #fff;
+}
+
+.logo-text-second {
+  color: #b77a11;
+}
+
+/***************************/
+/* NAV */
+/***************************/
+.header-right {
+  position: relative;
+}
+
+.contacts-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.contacts-nav-list li {
+  padding-right: 1.2rem;
+  border-right: 0.1rem solid #4c4c4c;
+}
+
+.contacts-nav-list li:last-child {
+  padding-right: 0;
+  border: none;
+}
+
+.nav-menu-list {
+  display: none;
+  border: 0.1rem solid #4c4c4c;
+  gap: 0.4rem;
+  position: absolute;
+  left: -0.5rem;
+  top: -1.4rem;
+  transform: translateX(-100%);
+  z-index: 1;
+  background-color: hsla(0, 0%, 8%, 0.925);
+  width: 22rem;
+  height: 20rem;
+  padding-top: 5rem;
+  transition: all 1s;
+}
+
+.nav-open .nav-menu-list {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.nav-menu-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+
+  justify-content: flex-end;
+}
+.nav-menu-list .need-to-autorized {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 3rem;
+  width: 100%;
+}
+
+.header-right .btn-nav-border {
+  border: 0.1rem solid #4c4c4c;
+}
+.btn-header-nav {
+  position: absolute;
+  background: none;
+  border: none;
+  z-index: 2;
+  background: none;
+  cursor: pointer;
+  left: -0.5rem;
+  transform: translateX(-100%);
+}
+
+.icon {
+  transition: all 0.2s;
+}
+
+.nav-menu-icons {
+  display: block;
+  height: 2.8rem;
+  width: 2.8rem;
+  color: #4c4c4c;
+}
+
+.nav-menu-icons[name="close-outline"] {
+  display: none;
+}
+
+.nav-open .nav-menu-icons[name="close-outline"] {
+  display: block;
+}
+
+.nav-open .nav-menu-icons[name="menu-outline"] {
+  display: none;
+}
+
+.nav-bar-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0 1.2rem;
+}
+.nav-bar-ion-icon {
+  margin: 0 1.2rem;
+  font-size: 2.4rem;
+}
+/***************************/
+/* SEARCHING FORM */
+/***************************/
+
+.header-input-search {
+  border: 0.1rem solid #4c4c4c;
+  background-color: #000;
+  color: #8f8f8f;
+  padding: 0.7rem 2.7rem 0.7rem 1.7rem;
+  width: 17rem;
+  text-align: end;
+  font-size: 1.2rem;
+}
+
+.header-input-submit {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-20%, -50%);
+  font-size: 0;
+}
+
+.header-input-submit:hover {
+  cursor: pointer;
+}
+
+.header-img-search {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+/***************************/
+/* links */
+/***************************/
+
+.game-name .game-name:visited {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.66);
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.game-activ {
+  color: #fff !important;
+}
+
+.game-name:hover,
+.game-name:active {
+  color: #fff;
+}
+
+.nav-menu-list a:link,
+.nav-menu-list a:visited {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding-right: 0.8rem;
+
+  border-right: 0.1rem solid #4c4c4c;
+}
+
+.nav-menu-list a:hover,
+.nav-menu-list a:active {
+  color: #fff;
+}
+
+/***************************/
+/* icons */
+/***************************/
+
+.game-icons-list {
+  display: flex;
+  justify-content: center;
+  padding: 1.2rem 0;
+  gap: 6.4rem;
+  margin: 0 16.5rem;
+}
+
+.game-icons-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-logo {
+  height: 2.8rem;
+  width: 2.8rem;
+  margin-right: 0.4rem;
+  transition: all 0.5s;
+}
+
+.icon-logo-activ {
+  transform: rotate(1turn);
+}
+
+.icon-contacts {
+  height: 1.6rem;
+  width: 1.6rem;
+  margin: 0.2rem 0.4rem 0.2rem 0;
+}
+
+.icon-contacts:hover,
+.icon-contacts:active {
+  height: 2rem;
+  width: 2rem;
+  margin: 0;
+  fill: stroke;
+}
+
+.game-icon {
+  height: 3.4rem;
+  width: 3.4rem;
+}

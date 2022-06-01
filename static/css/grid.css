@@ -1,0 +1,130 @@
+/***************************/
+/* MAIN SECTIONS */
+/***************************/
+
+.container.container-main {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+  column-gap: 0.8rem;
+  row-gap: 0.6rem;
+}
+
+.grid2 {
+  grid-template-columns: repeat(2, 1fr);
+  width: 66.6%;
+}
+
+.grid3 {
+  grid-template-columns: repeat(3, 1fr);
+  width: 75%;
+}
+
+/***************************/
+/* NEWS HEADER */
+/***************************/
+.main-header {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  grid-column: 1/-1;
+  background-color: #151515;
+  padding: 1.2rem 1rem 1.2rem 2rem;
+  grid-template-rows: auto;
+}
+
+.main-header-logo-first,
+.main-header-logo-second {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.main-header-logo-first {
+  color: #fff;
+}
+.main-header-logo-second {
+  color: #b77a11;
+}
+
+/***************************/
+/* NEWS BODY */
+/***************************/
+.main-news {
+  border-top: 0.6rem solid #92620e;
+  display: flex;
+  flex-direction: column;
+}
+
+.h2-news {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-color: #92620e;
+  font-size: 1.4rem;
+  font-weight: 100;
+  line-height: 1.4;
+  padding: 0.3rem 1.2rem;
+  height: 6rem;
+}
+
+.news-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  flex-grow: 1;
+  /* height: 15rem; */
+}
+
+/***************************/
+/* NEWS FOOTER */
+/***************************/
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #92620e;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+}
+.comment-icon {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.news-img {
+  transition: all 0.4s;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.news-img:hover {
+  transform: scale(1.1);
+}
+
+/***************************/
+/* NEWS links */
+/***************************/
+
+.img-container {
+  overflow: hidden;
+}
+
+.link-comment-count:link,
+.link-comment-count:visited {
+  color: #fff;
+}
+
+.link-comment-count:hover,
+.link-comment-count:active {
+  text-decoration: underline;
+}

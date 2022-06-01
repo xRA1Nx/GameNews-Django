@@ -1,0 +1,65 @@
+/***************************/
+/* FOOTER */
+/***************************/
+footer {
+  color: rgba(255, 255, 255, 0.66);
+}
+.footer-top {
+  background-color: #000;
+  padding: 1.2rem 0;
+  border-top: 0.6rem solid #b77a11;
+  gap: 8rem;
+}
+
+.footer-top-section {
+  display: flex;
+  gap: 8rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+.footer-left {
+  display: flex;
+
+  align-items: center;
+}
+
+footer .logo-text-first,
+footer .logo-text-second {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 1.4rem;
+}
+
+.footer-bottom-section {
+  margin-bottom: 2.4rem;
+}
+.contacts-footer {
+  display: flex;
+  gap: 3.2rem;
+  justify-content: center;
+  align-items: center;
+}
+.footer-contact-link:link,
+.footer-contact-link:visited {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-contact-link:hover,
+.footer-contact-link:active {
+  text-decoration: underline;
+}
+
+.footer-icon-contacts {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0.2rem 0.2rem;
+}
+
+.footer-icon-contacts-activ {
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+}

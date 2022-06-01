@@ -1,0 +1,112 @@
+{% extends "default.html"%}
+{% load static%}
+
+{% block title %}
+Games Portal Статья
+{% endblock title %}
+
+
+{% block section %}
+<section class="white-section">
+    <div class="post">
+        <h1 class="h1-postnews-title h1-white">
+            <p>{{post.title}}</p>
+            <nav class="post-actions">
+                <a class="post-actions-link describ-link"
+                   href="#">Подписаться</a>
+
+                <ul class="post-actions-list">
+                    <li>
+                        <a
+                                class="post-actions-link post-actions-link-red"
+                                href="{% url 'post-edit-link' post.id%}"
+                        >Редактировать</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                class="post-actions-link post-actions-link-red"
+                                href="{% url 'post-del-link' post.id%}"
+                        >Удалить</a
+                        >
+                    </li>
+                    <li>
+                        <a class="post-actions-link" href="#comments"
+                        >Комментировать</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </h1>
+        <div class="post-author-conteiner">
+            <p>
+                <span class="post-author-conteiner-label">АВТОР</span>
+                <a class="post-author-conteiner-link" href="#">{{post.author.user.username}}</a>
+            </p>
+
+            <p>
+                <span class="post-author-conteiner-label">ОПУБЛИКОВАНО</span>
+                <span class="post-author-conteiner-content">{{post.date_time|date:"d.m.Yг."}}</span>
+            </p>
+            <p>
+                <span class="post-author-conteiner-label">КОММЕНТАРИИ</span>
+                <span class="post-author-conteiner-content">{{post.comment_set.count}}</span>
+            </p>
+        </div>
+        <img
+                class="post-main-img"
+                src="{{post.main_img}}"
+                alt="POST big Img"
+        />
+    </div>
+    <div class="post-box">
+        <p class="post-text"> {{ post.text }} </p>
+    </div>
+
+
+    <!-- КОММЕНТАРИИ-->
+
+
+    <div class="form-comments" id="form-comments">
+        <form method="POST" class="form-post-comment">
+            {% csrf_token%}
+            {{form}}
+           <img class="comment-avatar avatar" src="{% static './imgs/ava-default.svg'%}" alt="user avatar"/>
+            <div class="comment-actions">
+                <input class="submit-comment" type="submit"/>
+            </div>
+        </form>
+
+    </div>
+
+    {% for comment in post.comment_set.all %}
+    <div class='post-comment'>
+        <p class='comment-user-nick' id='comment-$comment[id]'>
+            {{post.author.user.username }} <span>{{comment.date_time}}</span></p>
+        <img class='avatar comment-avatar' src="{% static './imgs/ava-default.svg'%}" alt='user avatar'/>
+        <p class='comment-text'>{{comment.text}}</p>
+    </div>
+    {% endfor %}
+
+    {% block pagination %}
+    {%endblock pagination %}
+
+</section>
+{%endblock section %}
+
+<!--ASIDE-->
+
+{% block aside%}
+{% for post in aside_posts %}
+
+<div class="main-news">
+    <a class='post-link' href='#'>
+        <div class='img-container'>
+            <img class='news-img' src='{{post.small_img}}' alt='news image'/>
+        </div>
+        <h2 class='h2-news news-default-setings'>{{post.title}}</h2></a>
+</div>
+{% endfor %}
+
+
+{% endblock aside%}

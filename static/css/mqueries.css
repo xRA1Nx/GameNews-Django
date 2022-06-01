@@ -1,0 +1,141 @@
+/* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px */
+
+/* 1264px */
+@media (max-width: 79em) {
+  .game-icons-list {
+    gap: 4rem;
+  }
+}
+/* 1137px */
+@media (max-width: 71em) {
+  html {
+    font-size: 56.25%;
+  }
+  .game-icons-list {
+    margin: 0 10rem;
+  }
+  .grid3 {
+    grid-template-columns: repeat(2, 1fr);
+    width: 66%;
+  }
+  .aside-right {
+    width: 32.8%;
+  }
+}
+
+/* 880px */
+@media (max-width: 55em) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    padding: 0 4.8rem;
+  }
+  .game-icons-list {
+    margin: 0 2rem;
+  }
+
+  .container.container-main {
+    gap: 0.8rem;
+  }
+
+  .main-news:nth-child(10) {
+    grid-column: 1;
+    width: 100%;
+  }
+  .pagination {
+    gap: 0.4rem;
+  }
+  header {
+    margin-bottom: 2.4rem;
+  }
+
+  .post {
+    column-gap: 1.2rem;
+    row-gap: 0.4rem;
+    margin-bottom: 0.4rem;
+    grid-template-columns: 1fr;
+  }
+  .white-section {
+    padding: 2.4rem;
+    margin-right: 0.6rem;
+  }
+  .container.container-white {
+    gap: 0;
+  }
+  .h1-white {
+    font-size: 2rem;
+  }
+  .post-author-conteiner {
+    align-items: flex-start;
+  }
+  .post-author-conteiner p {
+    display: block;
+  }
+  .post-author-conteiner-label {
+    margin-right: 0.8rem;
+  }
+  .post-author-conteiner-label::after {
+    content: ":";
+  }
+
+  .post-author-conteiner-content,
+  .post-author-conteiner-link:link,
+  .post-author-conteiner-link:visited {
+    font-size: 1.4rem;
+  }
+}
+/* 720px */
+@media (max-width: 45em) {
+  .game-icons-list {
+    gap: 3rem;
+    margin: 0;
+  }
+  .container {
+    padding: 0 1.2rem;
+  }
+  .hot-watched-discussed p {
+    padding: 0.5rem 1rem;
+  }
+
+  .grid {
+    column-gap: 0.4rem;
+    row-gap: 0.3rem;
+  }
+}
+
+/* 602px */
+@media (max-width: 37.6em) {
+  html {
+    font-size: 43.75%;
+  }
+
+  .container {
+    padding: 0;
+  }
+  .pagination {
+    gap: 3%;
+  }
+  .white-section {
+    padding: 0.2rem;
+  }
+  .post {
+    column-gap: 0.4rem;
+  }
+  header {
+    margin-bottom: 1.2rem;
+  }
+  .container.container-white {
+    margin-bottom: 1.2rem;
+  }
+}
+/* 500px */
+
+@media (max-width: 32rem) {
+  html {
+    font-size: 37.5%;
+  }
+  .pagination {
+    gap: 0.8rem;
+  }
+}
