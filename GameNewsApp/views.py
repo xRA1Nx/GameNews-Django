@@ -1,3 +1,5 @@
+
+
 from .models import Post
 from .forms import PostAddForm, CommentAddForm
 
@@ -9,6 +11,8 @@ class CategoryFilter(ListView):
     context_object_name = 'news'
     template_name = 'filter.html'
     ordering = '-date_time'
+    queryset = Post.objects.filter(categorys__in=request.Get.get('category'))
+
 
 
 class NewsView(ListView):
