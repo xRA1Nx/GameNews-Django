@@ -71,7 +71,7 @@ Games Portal Статья
         <form method="POST" class="form-post-comment">
             {% csrf_token%}
             {{form}}
-           <img class="comment-avatar avatar" src="{% static './imgs/ava-default.svg'%}" alt="user avatar"/>
+           <img class="comment-avatar avatar" src="{{post.author.user.avatar}}" alt="user avatar"/>
             <div class="comment-actions">
                 <input class="submit-comment" type="submit"/>
             </div>
@@ -83,7 +83,8 @@ Games Portal Статья
     <div class='post-comment'>
         <p class='comment-user-nick' id='comment-$comment[id]'>
             {{post.author.user.username }} <span>{{comment.date_time}}</span></p>
-        <img class='avatar comment-avatar' src="{% static './imgs/ava-default.svg'%}" alt='user avatar'/>
+<!--        <img class='avatar comment-avatar' src="{% static './imgs/ava-default.svg'%}" alt='user avatar'/>-->
+        <img class='avatar comment-avatar' src="{{post.ava}}" alt='user avatar'/>
         <p class='comment-text'>{{comment.text}}</p>
     </div>
     {% endfor %}
@@ -96,17 +97,6 @@ Games Portal Статья
 
 <!--ASIDE-->
 
-{% block aside%}
-{% for post in aside_posts %}
-
-<div class="main-news">
-    <a class='post-link' href='#'>
-        <div class='img-container'>
-            <img class='news-img' src='{{post.small_img}}' alt='news image'/>
-        </div>
-        <h2 class='h2-news news-default-setings'>{{post.title}}</h2></a>
-</div>
-{% endfor %}
-
-
-{% endblock aside%}
+    {% block aside%}
+    {% include "reuseble/aside.html"%}
+    {% endblock aside%}

@@ -1,9 +1,22 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractBaseUser
+from django.utils.translation import gettext_lazy as _
+
+
+class PortalUser(AbstractBaseUser):
+    avatar = models.TextField(max_length=500, default='/static/imgs/ava-default.svg')
+    fname = models.TextField(max_length=50, blank=True)
+    lname = models.TextField(max_length=50, blank=True)
+    email = models.TextField(max_length=100, unique=True,
+                             error_messages={
+                                 'unique': _("A user with that username already exists."),
+                             },
+                             )
+    username = models.TextField(max_length=50, unique=True, default=email)
 
 
 class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(PortalUser, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
@@ -11,11 +24,10 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=20, unique=True)
-    subsribers = models.ManyToManyField(User, through='UserCategory')
+    subsribers = models.ManyToManyField(PortalUser, through='UserCategory')
 
     def __str__(self):
         return self.name
-
 
 
 class Post(models.Model):
@@ -34,14 +46,14 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(PortalUser, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.CharField(max_length=250)
     date_time = models.DateTimeField(auto_now_add=True)
 
 
 class UserCategory(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(PortalUser, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 

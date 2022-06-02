@@ -5,21 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="discription" content="Новостной игровой портал" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./imgs/icons/logo.svg" />
+    <link rel="icon" href="/static/imgs/icons/logo.svg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     {% load static %}
 
@@ -175,74 +165,74 @@
         <nav class="game-icons container">
           <ul class="nav-list game-icons-list">
             <li>
-              <a href="#">
+              <a href="{% url 'filter-link'%}?category=Diablo">
                 <img
                   class="game-icon icons"
                   src="{% static './imgs/icons/games/Diablo.svg'%}"
                   alt="diablo icon"
                 />
               </a>
-              <a class="game-name" href="#">Diablo</a>
+              <a class="game-name" href="{% url 'filter-link'%}?category=Diablo">Diablo</a>
             </li>
             <li>
-              <a href="#">
+              <a href="{% url 'filter-link'%}?category=Overwatch">
                 <img
                   class="game-icon icons"
                   src="{% static './imgs/icons/games/Overwatch.svg'%}"
                   alt="Overwatch icon"
                 />
               </a>
-              <a href="#" class="game-name">Overwatch</a>
+              <a href="{% url 'filter-link'%}?category=Overwatch" class="game-name">Overwatch</a>
             </li>
             <li>
-              <a href="#">
+              <a href="{% url 'filter-link'%}?category=HoS">
                 <img
                   class="game-icon icons"
                   src="{% static './imgs/icons/games/Hots.svg'%}"
                   alt="Herous of the storm icon"
                 />
               </a>
-              <a href="#" class="game-name">Herous of the storm</a>
+              <a href="{% url 'filter-link'%}?category=HoS" class="game-name">Herous of the storm</a>
             </li>
             <li>
-              <a href="#">
+              <a href="{% url 'filter-link'%}?category=Starcraft">
                 <img
                   class="game-icon icons"
                   src="{% static './imgs/icons/games/Starcraft_2.svg'%}"
                   alt="Starcraft 2 icon"
                 />
               </a>
-              <a href="#" class="game-name">Starcraft</a>
+              <a href="{% url 'filter-link'%}?category=Starcraft" class="game-name">Starcraft</a>
             </li>
             <li>
-              <a href="#">
+              <a href="{% url 'filter-link'%}?category=Hearthstone">
                 <img
                   class="game-icon icons"
                   src="{% static './imgs/icons/games/Hearthstone.svg'%}"
                   alt="Hearthstone icon"
                 />
               </a>
-              <a href="#" class="game-name">Hearthstone</a>
+              <a href="{% url 'filter-link'%}?category=Hearthstone" class="game-name">Hearthstone</a>
             </li>
             <li>
-              <a href="#">
+              <a href="{% url 'filter-link'%}?category=Warcraft">
                 <img
                   class="game-icon icons"
                   src="{% static './imgs/icons/games/WoW.svg'%}"
                   alt="World of Warcraft icon"
                 />
               </a>
-              <a href="#" class="game-name">World of Warcraft</a>
+              <a href="{% url 'filter-link'%}?category=Warcraft" class="game-name">World of Warcraft</a>
             </li>
             <li>
-              <a href="#">
+              <a href="{% url 'filter-link'%}?category=Другие игры">
                 <img
                   class="game-icon icons"
                   src="{% static './imgs/icons/games/Other_Games.svg'%}"
                   alt="Other Games"
                 />
               </a>
-              <a href="#" class="game-name">Другие игры</a>
+              <a href="{% url 'filter-link'%}?category=Другие игры" class="game-name">Другие игры</a>
             </li>
           </ul>
         </nav>

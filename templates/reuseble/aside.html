@@ -1,0 +1,13 @@
+    <aside class="aside-right">
+    {% for post in aside_posts %}
+
+    <div class="main-news">
+        <a class='post-link' href='{% url "post-link" post.id %}'>
+            <div class='img-container'>
+                <img class='news-img' src='{{post.small_img}}' alt='news image'/>
+            </div>
+            <h2 class='h2-news news-default-setings'>{{post.title}}</h2></a>
+    </div>
+
+    {% endfor %}
+         </aside>

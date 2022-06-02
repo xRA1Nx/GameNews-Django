@@ -1,9 +1,9 @@
 from GameNewsApp.models import *
 from GameNewsApp.resourses import * 
 
-User.objects.create(username = "Ivan Ivanov")
-User.objects.create(username = "Petr Solovev") 
-User.objects.create(username = "Stepan Izmailov")
+PortalUser.objects.create(username = "Ivan Ivanov", email='user1@yandex.ru')
+PortalUser.objects.create(username = "Petr Solovev", email='user2@yandex.ru') 
+PortalUser.objects.create(username = 'Stepan Izmailov', email='user3@yandex.ru')
 
 Author.objects.create(user_id = 2) 
 
@@ -17,18 +17,33 @@ Category.objects.create(name = "Warcraft")
 Category.objects.create(name = "Другие игры")
 
 
+p1=Post.objects.create(author_id=1, title=titles[0], description=descriptions[0], text = texts[0] , main_img = main_imgs[0], small_img = small_imgs[0])
+p2=Post.objects.create(author_id=1, title=titles[1], description=descriptions[1], text = texts[1] , main_img = main_imgs[1], small_img = small_imgs[1])
+p3=Post.objects.create(author_id=1, title=titles[2], description=descriptions[2], text = texts[2] , main_img = main_imgs[2], small_img = small_imgs[2])
+p4=Post.objects.create(author_id=1, title=titles[3], description=descriptions[3], text = texts[3] , main_img = main_imgs[3], small_img = small_imgs[3])
+p5=Post.objects.create(author_id=1, title=titles[4], description=descriptions[4], text = texts[4] , main_img = main_imgs[4], small_img = small_imgs[4])
+p6=Post.objects.create(author_id=1, title=titles[5], description=descriptions[5], text = texts[5] , main_img = main_imgs[5], small_img = small_imgs[5])
+p7=Post.objects.create(author_id=1, title=titles[6], description=descriptions[6], text = texts[6] , main_img = main_imgs[6], small_img = small_imgs[6])
+p8=Post.objects.create(author_id=1, title=titles[7], description=descriptions[7], text = texts[7] , main_img = main_imgs[7], small_img = small_imgs[7])
+p9=Post.objects.create(author_id=1, title=titles[8], description=descriptions[8], text = texts[8] , main_img = main_imgs[8], small_img = small_imgs[8])
 
-p1=Post.objects.create(author_id=1, title="заголовок1", description="описание1", text = "текст1", main_img = main_img1, small_img = small_img1)
-p2=Post.objects.create(author_id=1, title="заголовок2", description="описание2", text = "текст2", main_img = main_img2, small_img = small_img2)
-p3=Post.objects.create(author_id=1, title="заголовок3", description="описание3", text = "текст3", main_img = main_img1, small_img = small_img1)
 
 
 p1.categorys.add(Category.objects.get(name="Diablo")) 
-p2.categorys.add(Category.objects.get(name="HoS")) 
-p3.categorys.add(Category.objects.get(name="Warcraft")) 
+p2.categorys.add(Category.objects.get(name="Diablo")) 
+p3.categorys.add(Category.objects.get(name="Warcraft"))
+p4.categorys.add(1, 2, 3, 4, 5, 6, 7)
+p5.categorys.add(Category.objects.get(name="Warcraft"))
+p6.categorys.add(Category.objects.get(name="Diablo"))
+p7.categorys.add(Category.objects.get(name="Warcraft"))
+p8.categorys.add(Category.objects.get(name="Overwatch"))   
+p9.categorys.add(Category.objects.get(name="Hearthstone"))
 
 
 c1 = Comment.objects.create(text = "привет", post_id=1, user_id=3)
+c6 = Comment.objects.create(text = "привет еще раз", post_id=1, user_id=3)
 c2 = Comment.objects.create(text = "круто!", post_id=2, user_id=2)
+
 c3 = Comment.objects.create(text = "супер!", post_id=3, user_id=2)
-c4 = Comment.objects.create(text = "очень интересно!", post_id=3, user_id=3)    
+c4 = Comment.objects.create(text = "очень интересно!", post_id=3, user_id=3)
+c5 = Comment.objects.create(text = "очень интересно!", post_id=3, user_id=3)     
