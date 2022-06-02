@@ -6,6 +6,8 @@ Games Portal Статья
 {% endblock title %}
 
 
+
+
 {% block section %}
 <section class="white-section">
     <div class="post">
@@ -46,7 +48,7 @@ Games Portal Статья
 
             <p>
                 <span class="post-author-conteiner-label">ОПУБЛИКОВАНО</span>
-                <span class="post-author-conteiner-content">{{post.date_time|date:"d.m.Yг."}}</span>
+                <span class="post-author-conteiner-content">{{post.date_time|date:"d.m.Y H:i"}}</span>
             </p>
             <p>
                 <span class="post-author-conteiner-label">КОММЕНТАРИИ</span>
@@ -71,7 +73,7 @@ Games Portal Статья
         <form method="POST" class="form-post-comment">
             {% csrf_token%}
             {{form}}
-           <img class="comment-avatar avatar" src="{{post.author.user.avatar}}" alt="user avatar"/>
+           <img class="comment-avatar avatar" src="/static/imgs/ava-default.svg" alt="user avatar"/>
             <div class="comment-actions">
                 <input class="submit-comment" type="submit"/>
             </div>
@@ -81,10 +83,12 @@ Games Portal Статья
 
     {% for comment in post.comment_set.all %}
     <div class='post-comment'>
-        <p class='comment-user-nick' id='comment-$comment[id]'>
+        <p class='comment-user-nick' id=comment.id>
             {{post.author.user.username }} <span>{{comment.date_time}}</span></p>
-<!--        <img class='avatar comment-avatar' src="{% static './imgs/ava-default.svg'%}" alt='user avatar'/>-->
-        <img class='avatar comment-avatar' src="{{post.ava}}" alt='user avatar'/>
+        <img class='avatar comment-avatar' src="/static/imgs/ava-default.svg"
+             alt='user avatar'/>
+<!--             src="{{post.author.user.avatar}}" -->
+
         <p class='comment-text'>{{comment.text}}</p>
     </div>
     {% endfor %}

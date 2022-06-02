@@ -2,45 +2,46 @@
 {% load static%}
 
 {% block title %}
-Games Portal Статья
+Создать новость
 {% endblock title %}
 
+{% block type_main %}
+<main class="container container-white" id="main">
+    {% endblock type_main %}
 
-{% block section %}
+    {% block section %}
 
-<section class="white-section">
-    <div class="forms-box">
-    <h1 class="h1-white h1-white-margin-b">
-      Разместить статью
-    </h1>
-        <form class="reuse-form" action="" method="post">
-        {% csrf_token%}
-        {{form.as_p}}
-        <input class="inp-submit" type="submit" value="разместить">
-        </form>
-    </div>
-  </section>
+    <section class="white-section">
+        <div class="forms-box">
+            <h1 class="h1-white h1-white-margin-b">
+                Разместить статью
+            </h1>
+            <form class="reuse-form" action="" method="post">
+                {% csrf_token%}
+                {{form.as_p}}
+                <input class="inp-submit" type="submit" value="разместить">
+            </form>
+        </div>
+    </section>
 
     {% block pagination %}
     {%endblock pagination %}
 
-</section>
-{%endblock section %}
+    </section>
+    {%endblock section %}
 
 
-{% block aside%}
-{% for post in aside_posts %}
+    {% block aside%}
+    {% for post in aside_posts %}
 
-<div class="main-news">
-    <a class='post-link' href='#'>
-        <div class='img-container'>
-            <img class='news-img' src='{{post.small_img}}' alt='news image'/>
-        </div>
-        <h2 class='h2-news news-default-setings'>{{post.title}}</h2></a>
-</div>
-{% endfor %}
-
-
+    <div class="main-news">
+        <a class='post-link' href='#'>
+            <div class='img-container'>
+                <img class='news-img' src='{{post.small_img}}' alt='news image'/>
+            </div>
+            <h2 class='h2-news news-default-setings'>{{post.title}}</h2></a>
+    </div>
+    {% endfor %}
 
 
     {% endblock aside%}

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, User
 from django.utils.translation import gettext_lazy as _
 
 
@@ -16,7 +16,7 @@ class PortalUser(AbstractBaseUser):
 
 
 class Author(models.Model):
-    user = models.OneToOneField(PortalUser, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
@@ -24,7 +24,7 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=20, unique=True)
-    subsribers = models.ManyToManyField(PortalUser, through='UserCategory')
+    subsribers = models.ManyToManyField(User, through='UserCategory')
 
     def __str__(self):
         return self.name
@@ -46,14 +46,14 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(PortalUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.CharField(max_length=250)
     date_time = models.DateTimeField(auto_now_add=True)
 
 
 class UserCategory(models.Model):
-    user = models.ForeignKey(PortalUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 

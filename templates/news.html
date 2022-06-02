@@ -19,7 +19,7 @@
         <p class='news-container'>{{ post.description }}</p>
         <div class="post-footer">
             <div class="footer-post-details">
-                <span class="post-date-time">{{post.date_time|date:"d.m.Yг."}}</span>
+                <span class="post-date-time">{{post.date_time|date:"d.m.Y H:i"}}</span>
                 <span class="author">{{post.user.username}}</span>
             </div>
             <div class="footer-comment-details">
@@ -31,7 +31,14 @@
     </div>
 
     {% endfor %}
+
+    {% if page_obj.paginator.num_pages > 1%}
+    {% include "reuseble/pagination.html" %}
+    {% endif %}
+
     {%endblock grid %}
+
+
 </section>
     {% endblock section %}
 

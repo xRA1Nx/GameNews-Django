@@ -5,6 +5,10 @@ PortalUser.objects.create(username = "Ivan Ivanov", email='user1@yandex.ru')
 PortalUser.objects.create(username = "Petr Solovev", email='user2@yandex.ru') 
 PortalUser.objects.create(username = 'Stepan Izmailov', email='user3@yandex.ru')
 
+User.objects.create(username = "Ivan Ivanov", email='user1@yandex.ru')
+User.objects.create(username = "Petr Solovev", email='user2@yandex.ru') 
+User.objects.create(username = 'Stepan Izmailov', email='user3@yandex.ru')
+
 Author.objects.create(user_id = 2) 
 
 

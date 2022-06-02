@@ -1,0 +1,45 @@
+<div class="pagination">
+
+    <button class="btn-pag btn-pag-left" aria-label="previous-page button">
+        {% if page_obj.has_previous %}
+        <a class="pag-btn-link" href="?page={{ page_obj.previous_page_number }}">
+            {% else %}
+            <a class="pag-btn-link" href="#">
+                {% endif %}
+                <svg xmlns="http://www.w3.org/2000/svg" class="pag-btn-icon icon-left"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" alt="previous-page icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </a>
+    </button>
+
+
+    <a class='pag-start-end' href='?page=1'>в начало</a>
+
+
+    {% for p in paginator.page_range %}
+    {% if page_obj.number == p %}
+    <a class='pag-link pag-activ' href='?page={{p}}'>{{p}}</a>
+
+
+    {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+    <a class='pag-link' href='?page={{p}}'>{{p}}</a>
+    {% endif %}
+    {% endfor %}
+
+    <a class='pag-start-end' href="?page={{ page_obj.paginator.num_pages }}">в конец</a>
+
+
+    <button class="btn-pag btn-pag-right" aria-label="next-page button">
+        {% if page_obj.has_next %}
+        <a class="pag-btn-link" href="?page={{ page_obj.next_page_number }}">
+            {% else %}
+            <a class="pag-btn-link" href="#">
+                {% endif %}
+                <svg xmlns="http://www.w3.org/2000/svg" class="pag-btn-icon icon-right"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" alt="next-page icon"/>
+                </svg>
+            </a>
+    </button>
+</div>

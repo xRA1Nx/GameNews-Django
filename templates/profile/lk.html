@@ -1,0 +1,92 @@
+{% extends "default.html"%}
+{% load static%}
+
+{% block title %}
+Личный кабинет
+{% endblock title %}
+
+{% block type_main %}
+<main class="container container-white" id="main">
+    {% endblock type_main %}
+
+    {% block section %}
+    <section class="white-section-100">
+        <div class="lk-box">
+
+
+            <h1 class="h1-white h1-white-margin-b">Личный кабинет</h1>
+            <div class=user-data>
+                <div class="user-avatar">
+                    <img class="user-avatar-img" src="/static/imgs/ava-default.svg"
+                    >
+                    <!--                     src="{{request.user.avatar}}"-->
+
+                    <nav>
+                        <a href="#">изменить</a>
+                        <a href="#">удалить</a>
+                    </nav>
+                </div>
+
+                <div class="user-info">
+                    <p><strong>Фамилия</strong>: {{request.user.avatar}}
+                        <a href="#">изменить</a>
+                    </p>
+                    <p><strong>Имя:</strong> {{request.user.fname}}
+                        <a href="#">изменить</a>
+                    </p>
+                    <p><strong>Эл. почта:</strong> {{request.user.email}}
+                        <a href="#">изменить</a>
+                    </p>
+                    <p><strong>Псевдоним:</strong> {{request.user.username}}
+                        <a href="#">изменить</a>
+                    </p>
+                    <p class=p-row-action>
+          <span class="profile-button">
+            <a href='#'>сменить пароль</a>
+          </span>
+                        <span class="profile-button exit-link">
+            <a href="{% url 'log_out-link' %}">Выйти</a>
+          </span>
+                    </p>
+
+                </div>
+            </div>
+
+
+            <!-- Подписки -->
+            <main class="profile-main">
+                <div class="subsribtions">
+                    <p class="subsribtions-title">Ваши подписки:</p>
+
+                    <li>
+                        <span>категория 1</span>
+                        <a class="unscribe-link" href='#'>отписаться</a>
+                    </li>
+
+                    </ul>
+                </div>
+
+
+                <div class="profile-actions">
+
+                    {% if not premium %}
+                    <p class="profile-button">Для размещения и редактирования новостей нужны авторсие права
+                        <a href="{% url 'upgrade-link' %}"> Получить права</a></p>
+                    {% else %}
+                    <p class="profile-button"><a href="{% url 'downgrade-link' %}">Отказаться от авторских прав</a></p>
+                    {% endif %}
+
+                </div>
+
+
+            </main>
+        </div>
+
+
+        {% block pagination %}
+        {% endblock pagination %}
+    </section>
+    {% endblock section %}
+
+    {% block aside%}
+    {% endblock aside%}

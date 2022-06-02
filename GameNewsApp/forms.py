@@ -1,7 +1,7 @@
 from .models import Post, Comment
 
 from django.forms import ModelForm, CharField, Textarea, MultipleChoiceField, HiddenInput, TextInput, URLInput, \
-    SelectMultiple
+    SelectMultiple, IntegerField
 
 
 class PostAddForm(ModelForm):
@@ -73,19 +73,14 @@ class PostAddForm(ModelForm):
             # 'text': 'Статья'
         }
 
-        # widgets = {
-        #     # 'author': HiddenInput(),
-        #     # 'main_img': TextInput(),
-        #     'small_img': TextInput(),
-        #     'title': TextInput(),
-        #     'description': Textarea(),
-        #     'text': Textarea(),
-        # }
+        widgets = {
+            'author': HiddenInput(),
+        }
 
 
 class CommentAddForm(ModelForm):
-    text = CharField(label="Статья", min_length=10, widget=Textarea)
+    text = CharField(label="Статья", min_length=3, widget=Textarea)
 
     class Meta:
         model = Comment
-        fields = ['text']
+        fields = ['text', "post", 'user']
