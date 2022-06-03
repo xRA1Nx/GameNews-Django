@@ -56,14 +56,27 @@
             <!-- Подписки -->
             <main class="profile-main">
                 <div class="subsribtions">
+                    {% if subscribed %}
                     <p class="subsribtions-title">Ваши подписки:</p>
+                    <form method="POST" action="{% url 'subscriptions' %}">
+                        <input type="hidden" name='action' value="unsubscibe">
+                        {% csrf_token %}
 
-                    <li>
-                        <span>категория 1</span>
-                        <a class="unscribe-link" href='#'>отписаться</a>
-                    </li>
-
+                        <ul class="subscriptions-list">
+                        {% for cat in request.user.category_set.all %}
+                        <li>
+                            <span>{{cat.name}}</span>
+                            <button class="reuse-btn" type="submit" name="category" value="{{cat.id}}">
+                                отписаться
+                            </button>
+                        </li>
+                        {% endfor %}
                     </ul>
+                    </form>
+
+                    {% else %}
+                    <p class="subsribtions-title">У вас нет активных подписок</p>
+                    {% endif %}
                 </div>
 
 
@@ -75,6 +88,8 @@
                     {% else %}
                     <p class="profile-button"><a href="{% url 'downgrade-link' %}">Отказаться от авторских прав</a></p>
                     {% endif %}
+
+                    <p class="profile-button"><a href="{% url 'confirm-comments-link' %}">Не подтвержденные комментарии к вашим статьям</a></p>
 
                 </div>
 

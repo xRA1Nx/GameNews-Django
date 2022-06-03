@@ -94,6 +94,7 @@
 .subscriptions-list span {
   font-weight: 700;
   font-size: 1.6rem;
+  display: block;
 }
 
 .subscriptions-list li {

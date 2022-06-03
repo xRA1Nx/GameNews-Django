@@ -12,40 +12,30 @@ Games Portal Статья
         <h1 class="h1-postnews-title h1-white">
             <p>{{post.title}}</p>
             <nav class="post-actions">
-                <div>
-                {% if not user_is_subscribed %}
-                <form method="POST" action="{% url 'subscriptions'%}">
-                    {% csrf_token%}
-                    <input type="hidden" name='action' value="subscibe">
-                    <input type="hidden" name="post_id" value="{{post.id}}">
-                    <input class="reuse-btn" type='submit' value='подписаться' name="subscribe">
-                </form>
-                    {% endif %}
-                    </div>
-<!--                    <a class="post-actions-link describ-link"-->
-<!--                       href="#">Подписаться</a>-->
+                <a class="post-actions-link describ-link"
+                   href="#">Подписаться</a>
 
-                    <ul class="post-actions-list">
-                        <li>
-                            <a
-                                    class="post-actions-link post-actions-link-red"
-                                    href="{% url 'post-edit-link' post.id%}"
-                            >Редактировать</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                    class="post-actions-link post-actions-link-red"
-                                    href="{% url 'post-del-link' post.id%}"
-                            >Удалить</a
-                            >
-                        </li>
-                        <li>
-                            <a class="post-actions-link" href="#comments"
-                            >Комментировать</a
-                            >
-                        </li>
-                    </ul>
+                <ul class="post-actions-list">
+                    <li>
+                        <a
+                                class="post-actions-link post-actions-link-red"
+                                href="{% url 'post-edit-link' post.id%}"
+                        >Редактировать</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                class="post-actions-link post-actions-link-red"
+                                href="{% url 'post-del-link' post.id%}"
+                        >Удалить</a
+                        >
+                    </li>
+                    <li>
+                        <a class="post-actions-link" href="#comments"
+                        >Комментировать</a
+                        >
+                    </li>
+                </ul>
             </nav>
         </h1>
         <div class="post-author-conteiner">
@@ -78,29 +68,35 @@ Games Portal Статья
 
     {% if request.user.is_authenticated %}
     <div class="form-comments" id="form-comments">
-        <span class="comment-btn">
-            <a href="{% url 'comment-add-link' %}?post_id={{post.id}}">оставить комментарий</a>
-          </span>
+        <form method="POST" class="form-post-comment">
+            {% csrf_token%}
+            {{form}}
+            <img class="comment-avatar avatar" src="/static/imgs/ava-default.svg" alt="user avatar"/>
+            <div class="comment-actions">
+                <input class="submit-comment" type="submit"/>
+            </div>
+        </form>
         {% else %}
         <p>Чтобы оставить комментарий <a href="http://127.0.0.1:8000/accounts/login/">войдите в систему</a></p>
         {% endif %}
     </div>
 
-    {% for comment in post_comments%}
-    {% if comment.accepted %}
+    {% for comment in post.comment_set.all %}
     <div class='post-comment'>
-        <p class='comment-user-nick'>
+        <p class='comment-user-nick' id=comment.id>
             {{post.author.user.username }} <span>{{comment.date_time}}</span></p>
         <img class='avatar comment-avatar' src="/static/imgs/ava-default.svg"
              alt='user avatar'/>
         <!--             src="{{post.author.user.avatar}}" -->
 
-        <p class='comment-text' id="comment-{{comment.id}}">{{comment.text}}</p>
+        <p class='comment-text'>{{comment.text}}</p>
         <nav>
-
+            {% if request.user.is_authenticated %}
+            <a href='#'>редактировать</a>
+            <a href='#'>удалить</a>
+            {% endif %}
         </nav>
     </div>
-    {% endif %}
     {% endfor %}
 
     {% block pagination %}

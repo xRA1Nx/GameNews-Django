@@ -79,8 +79,17 @@ class PostAddForm(ModelForm):
 
 
 class CommentAddForm(ModelForm):
-    text = CharField(label="Статья", min_length=3, widget=Textarea)
+    text = CharField(label="Ваш комментарий", min_length=3, widget=Textarea(attrs={
+            'placeholder': "оставьте комментарий",
+            'class': "inp post-ta",
+        }))
 
     class Meta:
         model = Comment
         fields = ['text', "post", 'user']
+
+        widgets = {
+            'user': HiddenInput(),
+            'post': HiddenInput(),
+        }
+

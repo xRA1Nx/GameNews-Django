@@ -1,0 +1,37 @@
+{% extends "default.html"%}
+{% load static%}
+
+{% block title %}
+Добавить комментарий
+{% endblock title %}
+
+
+{% block section %}
+<section class="white-section">
+
+    {% if request.user.is_authenticated %}
+    <div class="form-comments" id="form-comments">
+        <form method="POST" class="form-post-comment">
+            {% csrf_token%}
+            {{form}}
+            <img class="comment-avatar avatar" src="/static/imgs/ava-default.svg" alt="user avatar"/>
+            <div class="comment-actions">
+                <input class="submit-comment" type="submit"/>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+
+
+
+    {% block pagination %}
+    {%endblock pagination %}
+
+</section>
+{%endblock section %}
+
+<!--ASIDE-->
+
+{% block aside%}
+{% include "reuseble/aside.html"%}
+{% endblock aside%}

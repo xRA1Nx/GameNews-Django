@@ -42,7 +42,10 @@ class Post(models.Model):
     small_img = models.TextField(max_length=500)
 
     def get_absolute_url(self):  # добавим абсолютный путь, чтобы после создания нас перебрасывало на страницу с товаром
-        return f'/news/{self.id}'
+        return f'/{self.id}'
+
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):
@@ -50,6 +53,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.CharField(max_length=250)
     date_time = models.DateTimeField(auto_now_add=True)
+    accepted = models.BooleanField(default=False)
 
 
 class UserCategory(models.Model):
