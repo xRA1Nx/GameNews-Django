@@ -2,7 +2,7 @@
 
     <button class="btn-pag btn-pag-left" aria-label="previous-page button">
         {% if page_obj.has_previous %}
-        <a class="pag-btn-link" href="?page={{ page_obj.previous_page_number }}">
+        <a class="pag-btn-link" href="?category={{category}}&page={{ page_obj.previous_page_number }}">
             {% else %}
             <a class="pag-btn-link" href="#">
                 {% endif %}
@@ -14,25 +14,25 @@
     </button>
 
 
-    <a class='pag-start-end' href='?page=1'>в начало</a>
+    <a class='pag-start-end' href='?category={{category}}&page=1'>в начало</a>
 
 
     {% for p in paginator.page_range %}
     {% if page_obj.number == p %}
-    <a class='pag-link pag-activ' href='?page={{p}}'>{{p}}</a>
+    <a class='pag-link pag-activ' href='?category={{category}}&page={{p}}'>{{p}}</a>
 
 
     {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
-    <a class='pag-link' href='?page={{p}}'>{{p}}</a>
+    <a class='pag-link' href='?category={{category}}&page={{p}}'>{{p}}</a>
     {% endif %}
     {% endfor %}
 
-    <a class='pag-start-end' href="?page={{ page_obj.paginator.num_pages }}">в конец</a>
+    <a class='pag-start-end' href="?category={{category}}&page={{ page_obj.paginator.num_pages }}">в конец</a>
 
 
     <button class="btn-pag btn-pag-right" aria-label="next-page button">
         {% if page_obj.has_next %}
-        <a class="pag-btn-link" href="?page={{ page_obj.next_page_number }}">
+        <a class="pag-btn-link" href="?category={{category}}&page={{ page_obj.next_page_number }}">
             {% else %}
             <a class="pag-btn-link" href="#">
                 {% endif %}

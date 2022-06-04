@@ -133,10 +133,11 @@
                 </nav>
 
 
-                <form class="header-form-search" method="post" action="{% url 'filter-link' %}">
+                <form class="header-form-search" method="post" action="{% url 'search-link' %}">
                     {% csrf_token%}
                     <input
                             type="text"
+                            name = "text"
                             placeholder="ПОИСК"
                             class="header-input-search"
                     />

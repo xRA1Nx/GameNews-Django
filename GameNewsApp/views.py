@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
@@ -9,7 +10,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.edit import FormMixin
-from django.db.models import Count
+from django.db.models import Count, Q, Case, When
 
 
 @login_required
@@ -36,11 +37,50 @@ def subscribe(request, *args, **kwargs):
     # return render(request, 'profile/lk.html', context=context_dict)
 
 
+def news_search(request, *args, **kwargs):
+    context_dict = {}
+
+    if request.method == "POST":
+        text = request.POST['text']
+        news = Post.objects.all().filter(Q(title__icontains=text) | Q(description__icontains=text) | Q(
+            text__icontains=text))
+        #
+        # p = Paginator(news, 2)
+        # res = p.get_page(request.GET.get('page', 1))
+        context_dict['news'] = news
+        context_dict['aside_posts'] = Post.objects.annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1)))).order_by(
+            '-count_comments')[0:3]
+        context_dict['nums'] = [1, 2, 3]
+        return render(request, 'search.html', context=context_dict)
+    else:
+        return redirect('/')
+
+
+# class NewsSearchView(ListView):
+#     model = Post
+#     context_object_name = 'news'
+#     template_name = 'search.html'
+#     ordering = '-date_time'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['aside_posts'] = Post.objects.annotate(count_comments=Count('comment')).order_by(
+#             '-count_comments')[0:3]
+#         context['nums'] = [1, 2, 3]
+#         context['filter'] = SearchNewsFilter(self.request.GET,
+#                                        queryset=self.get_queryset())  # вписываем наш фильтр в контекст
+#
+#         return context
+
+
 class CategoryFilter(ListView):
     model = Post
     context_object_name = 'news'
     template_name = 'filter.html'
     ordering = '-date_time'
+    paginate_by = 9
 
     def get_queryset(self):
         qs = super(CategoryFilter, self).get_queryset()
@@ -56,8 +96,12 @@ class CategoryFilter(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['aside_posts'] = Post.objects.annotate(count_comments=Count('comment')).order_by(
+        context['aside_posts'] = Post.objects.annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1)))).order_by(
             '-count_comments')[0:3]
+        if self.request.GET.get('category'):
+            context['category'] = self.request.GET.get('category')
         context['nums'] = [1, 2, 3]
         return context
 
@@ -71,7 +115,9 @@ class NewsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['aside_posts'] = Post.objects.annotate(count_comments=Count('comment')).order_by(
+        context['aside_posts'] = Post.objects.annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1)))).order_by(
             '-count_comments')[0:3]
         context['nums'] = [1, 2, 3]
         return context
@@ -93,7 +139,9 @@ class PostView(FormMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['aside_posts'] = Post.objects.annotate(count_comments=Count('comment')).order_by(
+        context['aside_posts'] = Post.objects.annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1)))).order_by(
             '-count_comments')[0:3]
         context['post_comments'] = self.object.comment_set.all().order_by('-date_time')
         flag = False
