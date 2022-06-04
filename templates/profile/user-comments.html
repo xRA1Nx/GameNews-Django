@@ -42,6 +42,8 @@ comments
             <tr>
                 <th>Название статьи</th>
                 <th>Комментарий</th>
+                <th>Пользователь</th>
+
                 <th>Дата и время создания</th>
 
 
@@ -51,21 +53,21 @@ comments
             <tr>
                 <td><a href="{% url 'post-link' comment.post.id %}">{{comment.post.title}}</a></td>
                 <td>{{comment.text}}</td>
+                <td>{{comment.user}}</td>
                 <td>{{comment.date_time|date:"d.m.Y H:i"}}</td>
-                <td>
-                    <form method="post" action="{% url 'comment-del-link'%}">
-                        {% csrf_token %}
-                        <button class="submit" name="comment-id" value="{{comment.id}}">
-                            удалить
-                        </button>
-                    </form>
-                </td>
-
                 <td>
                     <form method="post" action="{% url 'comment-accept-link'%}">
                         {% csrf_token %}
-                        <button class="submit" name="comment-id" value="{{comment.id}}">
+                        <button class="reuse-btn" name="comment-id" value="{{comment.id}}">
                             принять
+                        </button>
+                    </form>
+                </td>
+                   <td>
+                    <form method="post" action="{% url 'comment-del-link'%}">
+                        {% csrf_token %}
+                        <button class="reuse-btn-red" name="comment-id" value="{{comment.id}}">
+                            удалить
                         </button>
                     </form>
                 </td>

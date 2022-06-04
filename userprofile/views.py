@@ -76,5 +76,7 @@ def comment_del(request, *args, **kwargs):
 
 def comment_accept(request, *args, **kwargs):
     com_id = request.POST['comment-id']
-    Comment.objects.filter(pk=int(com_id)).update(accepted=True)
+    com = Comment.objects.filter(pk=int(com_id))
+    com.update(accepted=True)
+    com[0].save()
     return redirect("/profile/confirm-comments/")

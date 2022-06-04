@@ -93,6 +93,16 @@ main {
   font-size: 1.2rem;;
 }
 
+.reuse-btn-red{
+  background-color: red;
+  border: none;
+  border-radius: 7px;
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+  cursor: pointer;
+  font-size: 1.2rem;;
+}
+
 a:link,
 a:visited {
   cursor: pointer;

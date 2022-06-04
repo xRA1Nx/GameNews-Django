@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+{{ comment.user }} На вашу статью <strong>{{comment.post}}</strong> добавлен новый комментарий!
+        <hr>
+
+<p> автор: {{comment.user}} </p>
+<p> Дата и время создания {{comment.date_time|date:"d.m.Y H:i"}} </p>
+<p> Комментарий: {{comment.text}} </p>
+
+<p>Вы можете модерировать комментарии к своим статьям из личного кабинета по этой <a href="http://127.0.0.1:8000/profile/confirm-comments/">ссылке</a> </p>
+
+
+</body>
+</html>
