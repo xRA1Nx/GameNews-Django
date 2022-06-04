@@ -124,11 +124,12 @@
                             <a class='need-to-autorized' href='http://127.0.0.1:8000/accounts/login/'>Войти</a>
                             <ion-icon class="nav-bar-ion-icon" name="log-in-outline"></ion-icon>
                         </li>
+                        <li>
+                            <a class="need-to-autorized" href="http://127.0.0.1:8000/accounts/signup/">Регистрация</a>
+                            <ion-icon class="nav-bar-ion-icon" name="person-add-outline"></ion-icon>
+                        </li>
                         {% endif %}
-                                    <li>
-                                      <a class="need-to-autorized" href="http://127.0.0.1:8000/accounts/signup/">Регистрация</a>
-                                      <ion-icon class="nav-bar-ion-icon" name="person-add-outline"></ion-icon>
-                                    </li>
+
                     </ul>
                 </nav>
 
@@ -137,7 +138,7 @@
                     {% csrf_token%}
                     <input
                             type="text"
-                            name = "text"
+                            name="text"
                             placeholder="ПОИСК"
                             class="header-input-search"
                     />
@@ -286,9 +287,6 @@
 
 
         {% endblock grid %}
-
-
-
 
 
     </section>

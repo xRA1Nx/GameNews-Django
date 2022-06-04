@@ -42,7 +42,7 @@ Games Portal Статья
                         </li>
                         <li>
                             <a class="post-actions-link" href="#comments"
-                            >Комментировать</a
+                            >Комментарии</a
                             >
                         </li>
                     </ul>
@@ -70,14 +70,16 @@ Games Portal Статья
         />
     </div>
     <div class="post-box">
-        <p class="post-text"> {{ post.text }} </p>
+        {% for row in post_text %}
+        <p class="post-text"> {{ row }} </p>
+        {% endfor %}
     </div>
 
 
     <!-- КОММЕНТАРИИ-->
-
+     <div class="form-comments" id="comments">
     {% if request.user.is_authenticated %}
-    <div class="form-comments" id="form-comments">
+
         <span class="comment-btn">
             <a href="{% url 'comment-add-link' %}?post_id={{post.id}}">оставить комментарий</a>
           </span>
@@ -90,10 +92,10 @@ Games Portal Статья
     {% if comment.accepted %}
     <div class='post-comment'>
         <p class='comment-user-nick'>
-            {{post.author.user.username }} <span>{{comment.date_time}}</span></p>
-        <img class='avatar comment-avatar' src="/static/imgs/ava-default.svg"
+            {{comment.user.username }} <span>{{comment.date_time}}</span></p>
+        <img class='avatar comment-avatar' src="{{comment.user.avatar}}"
              alt='user avatar'/>
-        <!--             src="{{post.author.user.avatar}}" -->
+
 
         <p class='comment-text' id="comment-{{comment.id}}">{{comment.text}}</p>
         <nav>

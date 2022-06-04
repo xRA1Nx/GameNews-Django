@@ -14,7 +14,7 @@
         <form method="POST" class="form-post-comment">
             {% csrf_token%}
             {{form}}
-            <img class="comment-avatar avatar" src="/static/imgs/ava-default.svg" alt="user avatar"/>
+            <img class="comment-avatar avatar" src="{{request.user.avatar}}" alt="user avatar"/>
             <div class="comment-actions">
                 <input class="submit-comment" type="submit"/>
             </div>

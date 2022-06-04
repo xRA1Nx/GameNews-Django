@@ -17,32 +17,43 @@
             <h1 class="h1-white h1-white-margin-b">Личный кабинет</h1>
             <div class=user-data>
                 <div class="user-avatar">
-                    <img class="user-avatar-img" src="/static/imgs/ava-default.svg"
+                    <img class="user-avatar-img" src="{{request.user.avatar}}"
                     >
                     <!--                     src="{{request.user.avatar}}"-->
 
                     <nav>
-                        <a href="#">изменить</a>
-                        <a href="#">удалить</a>
+                        <a href="profile-edit?profile-action=edit-ava">изменить</a>
+                        <a href="profile-edit?profile-action=del-ava">удалить</a>
                     </nav>
                 </div>
 
                 <div class="user-info">
-                    <p><strong>Фамилия</strong>: {{request.user.avatar}}
-                        <a href="#">изменить</a>
+                    <p><strong>Фамилия</strong>:
+                        {% if request.user.lname %}
+                        {{request.user.lname}}
+                        {% else %}
+                        нет данных
+                        {% endif %}
+                        <a href="profile-edit?profile-action=edit-lname">изменить</a>
                     </p>
-                    <p><strong>Имя:</strong> {{request.user.fname}}
-                        <a href="#">изменить</a>
+                    <p><strong>Имя:</strong>
+                        {% if request.user.fname %}
+                        {{request.user.fname}}
+                        {% else %}
+                        нет данных
+                        {% endif %}
+                        <a href="profile-edit?profile-action=edit-fname">изменить</a>
                     </p>
                     <p><strong>Эл. почта:</strong> {{request.user.email}}
-                        <a href="#">изменить</a>
+                        <a href="profile-edit?profile-action=edit-email">изменить</a>
                     </p>
                     <p><strong>Псевдоним:</strong> {{request.user.username}}
-                        <a href="#">изменить</a>
+                        <a href="profile-edit?profile-action=edit-nick">изменить</a>
                     </p>
                     <p class=p-row-action>
           <span class="profile-button">
-            <a href='#'>сменить пароль</a>
+             <a href="http://127.0.0.1:8000/accounts/password/change/">сменить пароль</a>
+<!--              <a href="#">сменить пароль</a>-->
           </span>
                         <span class="profile-button exit-link">
             <a href="{% url 'log_out-link' %}">Выйти</a>
@@ -63,15 +74,15 @@
                         {% csrf_token %}
 
                         <ul class="subscriptions-list">
-                        {% for cat in request.user.category_set.all %}
-                        <li>
-                            <span>{{cat.name}}</span>
-                            <button class="reuse-btn" type="submit" name="category" value="{{cat.id}}">
-                                отписаться
-                            </button>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                            {% for cat in request.user.category_set.all %}
+                            <li>
+                                <span>{{cat.name}}</span>
+                                <button class="reuse-btn" type="submit" name="category" value="{{cat.id}}">
+                                    отписаться
+                                </button>
+                            </li>
+                            {% endfor %}
+                        </ul>
                     </form>
 
                     {% else %}
@@ -89,7 +100,8 @@
                     <p class="profile-button"><a href="{% url 'downgrade-link' %}">Отказаться от авторских прав</a></p>
                     {% endif %}
 
-                    <p class="profile-button"><a href="{% url 'confirm-comments-link' %}">Не подтвержденные комментарии к вашим статьям</a></p>
+                    <p class="profile-button"><a href="{% url 'confirm-comments-link' %}">МОДЕРИРОВАТЬ КОММЕНТАРИИ
+                       </a></p>
 
                 </div>
 

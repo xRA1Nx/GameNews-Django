@@ -1,0 +1,112 @@
+{% extends "default.html"%}
+
+{% block title %}
+Изменение данных
+{% endblock title %}
+
+{% block type_main %}
+<main class="container container-white" id="main">
+    {% endblock type_main %}
+
+    {% block section %}
+
+
+    <section class="white-section-100">
+        <div class="lk-box">
+            {% if action == 'edit-ava' %}
+            <h1 class="h1-white h1-white-margin-b">Изменение аватара</h1>
+            <form class="reuse-form" method='post'>
+                {% csrf_token %}
+                <div>
+                    <span>{{error}}</span><br>
+                    <input class="inp" type="url" id="ava" name="ava"
+                           placeholder="укажите название ссылки на ваш аватар" size=35>
+                    <input class="inp-submit" type="SUBMIT" value="изменить">
+                </div>
+            </form>
+            {% endif %}
+
+            {% if action == 'edit-lname' %}
+            <h1 class="h1-white h1-white-margin-b">Изменение фамилии</h1>
+            <form class="reuse-form" method='post'>
+                {% csrf_token %}
+                <div>
+                    <span>{{error}}</span><br>
+                    <input class="inp" type="text" id="lname" name="lname" placeholder="укажите вашу фамилию">
+                    <input class="inp-submit" type="SUBMIT" value="изменить">
+                </div>
+            </form>
+            {% endif %}
+
+            {% if action == 'edit-fname' %}
+            <h1 class="h1-white h1-white-margin-b">Изменение имени</h1>
+            <form class="reuse-form" method='post'>
+                {% csrf_token %}
+                <div>
+                    <span>{{error}}</span><br>
+                    <input class="inp" type="text" id="fname" name="fname" placeholder="укажите ваше имя">
+                    <input class="inp-submit" type="SUBMIT" value="изменить">
+                </div>
+            </form>
+            {% endif %}
+
+
+            {% if action == 'edit-nick' %}
+            <h1 class="h1-white h1-white-margin-b">Изменение ника</h1>
+            <form class="reuse-form" method='post'>
+                {% csrf_token %}
+                <div>
+                    <span>{{error}}</span><br>
+                    <input class="inp" type="text" id="nick" name="nick" placeholder="укажите ваш ник">
+                    <input class="inp-submit" type="SUBMIT" value="изменить">
+                </div>
+            </form>
+            {% endif %}
+
+
+            {% if action == 'edit-email' %}
+            <h1 class="h1-white h1-white-margin-b">Изменение email</h1>
+            <form class="reuse-form" method='post'>
+                {% csrf_token %}
+                <div>
+                    <span>{{error}}</span><br>
+                    <input class="inp" type="email" id="email" name="email" placeholder="укажите ваш email">
+                    <input class="inp-submit" type="SUBMIT" value="изменить">
+                </div>
+            </form>
+            <p class="change-profile-attention">После изменения данных понадобится повторно авторизоваться</p>
+            {% endif %}
+
+<!--            {% if action == 'edit-pass' %}-->
+<!--            <h1 class="h1-white h1-white-margin-b">Изменение пароля</h1>-->
+<!--            <form class="reuse-form" method='post'>-->
+<!--                {% csrf_token %}-->
+<!--                <div>-->
+<!--                    <span>{{error}}</span><br>-->
+<!--                    <input class="inp" type="password" id="pass1" name="pass1" placeholder="введите пароль"><br>-->
+<!--                    <input class="inp" type="password" id="pass2" name="pass2" placeholder="повторите ваш пароль"><br>-->
+<!--                    <input class="inp-submit" type="SUBMIT" value="изменить">-->
+<!--                </div>-->
+<!--            </form>-->
+<!--            <p class="change-profile-attention">После изменения данных понадобится повторно авторизоваться</p>-->
+<!--            {% endif %}-->
+
+
+        </div>
+
+
+    </section>
+
+    {% endblock section %}
+
+
+    {{action}}
+
+
+    <!--<form  class="reuse-form" method = 'post' >-->
+    <!--        <div>-->
+    <!--        <span>$error</span><br>-->
+    <!--        <input class="inp" type ="url" id = "ava" name = "ava" placeholder="укажите название ссылки на ваш аватар" size = 35>-->
+    <!--        <input class="inp-submit" type = "SUBMIT" value="изменить">-->
+    <!--        </div>-->
+    <!--        </form>-->

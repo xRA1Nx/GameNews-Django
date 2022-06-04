@@ -1,4 +1,5 @@
-from .views import ProfileView, upgrade_me, DownGradeView, AuthorComments, comment_del, comment_accept
+from .views import ProfileView, upgrade_me, DownGradeView, AuthorComments, comment_del,\
+    comment_accept, profile_edit
 from django.contrib.auth.views import LogoutView
 
 from django.urls import path
@@ -11,4 +12,5 @@ urlpatterns = [
     path('confirm-comments/', AuthorComments.as_view(), name='confirm-comments-link'),
     path('comment-del/', comment_del, name="comment-del-link"),
     path('comment-accept/', comment_accept, name="comment-accept-link"),
+    path('profile-edit/', profile_edit, name='profile-edit'),
 ]

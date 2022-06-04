@@ -139,6 +139,9 @@ class PostView(FormMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        post_text = self.object.text.split("\n")
+        # post_text = self.object.text
+        context['post_text'] = post_text
         context['aside_posts'] = Post.objects.annotate(
             count_comments=Count(Case(When(
                 comment__accepted=True, then=1)))).order_by(

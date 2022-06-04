@@ -1,18 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, User
-from django.utils.translation import gettext_lazy as _
-
-
-class PortalUser(AbstractBaseUser):
-    avatar = models.TextField(max_length=500, default='/static/imgs/ava-default.svg')
-    fname = models.TextField(max_length=50, blank=True)
-    lname = models.TextField(max_length=50, blank=True)
-    email = models.TextField(max_length=100, unique=True,
-                             error_messages={
-                                 'unique': _("A user with that username already exists."),
-                             },
-                             )
-    username = models.TextField(max_length=50, unique=True, default=email)
+from users.models import User
 
 
 class Author(models.Model):
