@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from .models import Post, Author, Category
 from .forms import PostAddForm, CommentAddForm
 from django.urls import reverse
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.edit import FormMixin
@@ -40,26 +40,24 @@ def subscribe(request, *args, **kwargs):
 def news_search(request, *args, **kwargs):
     context_dict = {}
 
-    if request.method == "POST":
-        text = request.POST['text']
-        news = Post.objects.all().filter(Q(title__icontains=text) | Q(description__icontains=text) | Q(
-            text__icontains=text)).annotate(
-            count_comments=Count(Case(When(
-                comment__accepted=True, then=1)))).order_by(
-            '-date_time')
+    text = request.GET['text']
+    news = Post.objects.all().filter(Q(title__icontains=text) | Q(description__icontains=text) | Q(
+        text__icontains=text)).annotate(
+        count_comments=Count(Case(When(
+            comment__accepted=True, then=1)))).order_by(
+        '-date_time')
 
-        #
-        # p = Paginator(news, 2)
-        # res = p.get_page(request.GET.get('page', 1))
-        context_dict['news'] = news
-        context_dict['aside_posts'] = Post.objects.annotate(
-            count_comments=Count(Case(When(
-                comment__accepted=True, then=1)))).order_by(
-            '-count_comments')[0:3]
-        context_dict['nums'] = [1, 2, 3]
-        return render(request, 'search.html', context=context_dict)
-    else:
-        return redirect('/')
+    p = Paginator(news, 9)
+    res = p.get_page(request.GET.get('page', 1))
+    context_dict['text'] = text
+    context_dict['news'] = news
+    context_dict['page_obj'] = res
+    context_dict['aside_posts'] = Post.objects.annotate(
+        count_comments=Count(Case(When(
+            comment__accepted=True, then=1)))).order_by(
+        '-count_comments')[0:3]
+    context_dict['nums'] = [1, 2, 3]
+    return render(request, 'search.html', context=context_dict)
 
 
 # class NewsSearchView(ListView):
@@ -168,6 +166,10 @@ class PostView(FormMixin, DetailView):
                 flag = True
                 break
         context['user_is_subscribed'] = flag
+        if self.request.user.is_authenticated:
+            context['is_author'] = Author.objects.filter(user=self.request.user).exists()
+        else:
+            context['is_author'] = False
         return context
 
     def get_success_url(self):
@@ -216,7 +218,7 @@ class PostDel(PermissionRequiredMixin, DeleteView):
     success_url = 'http://127.0.0.1:8000/'
 
 
-class CommentAdd(CreateView):
+class CommentAdd(LoginRequiredMixin, CreateView):
     form_class = CommentAddForm
     context_object_name = 'comment'
     template_name = 'comment-add.html'

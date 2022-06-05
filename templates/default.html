@@ -134,8 +134,7 @@
                 </nav>
 
 
-                <form class="header-form-search" method="post" action="{% url 'search-link' %}">
-                    {% csrf_token%}
+                <form class="header-form-search" method="get" action="{% url 'search-link' %}">
                     <input
                             type="text"
                             name="text"

@@ -14,39 +14,43 @@ Games Portal Статья
             <p>{{post.title}}</p>
             <nav class="post-actions">
                 <div>
-                {% if not user_is_subscribed %}
-                <form method="POST" action="{% url 'subscriptions'%}">
-                    {% csrf_token%}
-                    <input type="hidden" name='action' value="subscibe">
-                    <input type="hidden" name="post_id" value="{{post.id}}">
-                    <input class="reuse-btn" type='submit' value='подписаться' name="subscribe">
-                </form>
+                    {% if not user_is_subscribed %}
+                    <form method="POST" action="{% url 'subscriptions'%}">
+                        {% csrf_token%}
+                        <input type="hidden" name='action' value="subscibe">
+                        <input type="hidden" name="post_id" value="{{post.id}}">
+                        <input class="reuse-btn" type='submit' value='подписаться' name="subscribe">
+                    </form>
                     {% endif %}
-                    </div>
-<!--                    <a class="post-actions-link describ-link"-->
-<!--                       href="#">Подписаться</a>-->
+                </div>
+                <!--                    <a class="post-actions-link describ-link"-->
+                <!--                       href="#">Подписаться</a>-->
 
-                    <ul class="post-actions-list">
-                        <li>
-                            <a
-                                    class="post-actions-link post-actions-link-red"
-                                    href="{% url 'post-edit-link' post.id%}"
-                            >Редактировать</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                    class="post-actions-link post-actions-link-red"
-                                    href="{% url 'post-del-link' post.id%}"
-                            >Удалить</a
-                            >
-                        </li>
-                        <li>
-                            <a class="post-actions-link" href="#comments"
-                            >Комментарии</a
-                            >
-                        </li>
-                    </ul>
+
+                {% if is_author %}
+                <ul class="post-actions-list">
+                    <li>
+                        <a
+                                class="post-actions-link post-actions-link-red"
+                                href="{% url 'post-edit-link' post.id%}"
+                        >Редактировать</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                class="post-actions-link post-actions-link-red"
+                                href="{% url 'post-del-link' post.id%}"
+                        >Удалить</a
+                        >
+                    </li>
+                    {% endif %}
+
+                    <li>
+                        <a class="post-actions-link" href="#comments"
+                        >Комментарии</a
+                        >
+                    </li>
+                </ul>
             </nav>
         </h1>
         <div class="post-author-conteiner">
@@ -78,8 +82,8 @@ Games Portal Статья
 
 
     <!-- КОММЕНТАРИИ-->
-     <div class="form-comments" id="comments">
-    {% if request.user.is_authenticated %}
+    <div class="form-comments" id="comments">
+        {% if request.user.is_authenticated %}
 
         <span class="comment-btn">
             <a href="{% url 'comment-add-link' %}?post_id={{post.id}}">оставить комментарий</a>

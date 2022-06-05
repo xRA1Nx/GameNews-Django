@@ -97,11 +97,12 @@
                     <p class="profile-button">Для размещения и редактирования новостей нужны авторсие права
                         <a href="{% url 'upgrade-link' %}"> Получить права</a></p>
                     {% else %}
+                      <p class="profile-button"><a href="{% url 'confirm-comments-link' %}">МОДЕРИРОВАТЬ КОММЕНТАРИИ
+                       </a></p>
+
                     <p class="profile-button"><a href="{% url 'downgrade-link' %}">Отказаться от авторских прав</a></p>
                     {% endif %}
 
-                    <p class="profile-button"><a href="{% url 'confirm-comments-link' %}">МОДЕРИРОВАТЬ КОММЕНТАРИИ
-                       </a></p>
 
                 </div>
 

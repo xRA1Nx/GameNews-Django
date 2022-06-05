@@ -6,7 +6,7 @@ from allauth.account.models import EmailAddress
 from django.db.models import Q, Count
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView, ListView, DeleteView
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect, render
 
@@ -15,6 +15,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from userprofile.filters import CommentsFilter
 
 
+@login_required
 def profile_edit(request, *args, **kwargs):
     user_id = request.user.id
     action = request.GET.get('profile-action')
@@ -160,15 +161,18 @@ class DownGradeView(LoginRequiredMixin, TemplateView):
         premium_group = Group.objects.get(name='author')
         if request.user.groups.filter(name='author').exists():
             premium_group.user_set.remove(current_user)
+        # Author.objects.filter(user_id=int(current_user.pk)).delete()
         return redirect("/profile/")
 
 
+@permission_required('GameNewsApp.delete_comment')
 def comment_del(request, *args, **kwargs):
     com_id = request.POST['comment-id']
     Comment.objects.filter(pk=int(com_id)).delete()
     return redirect("/profile/confirm-comments/")
 
 
+@permission_required('GameNewsApp.change_comment')
 def comment_accept(request, *args, **kwargs):
     com_id = request.POST['comment-id']
     com = Comment.objects.filter(pk=int(com_id))
