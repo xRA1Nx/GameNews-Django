@@ -43,7 +43,11 @@ def news_search(request, *args, **kwargs):
     if request.method == "POST":
         text = request.POST['text']
         news = Post.objects.all().filter(Q(title__icontains=text) | Q(description__icontains=text) | Q(
-            text__icontains=text))
+            text__icontains=text)).annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1)))).order_by(
+            '-date_time')
+
         #
         # p = Paginator(news, 2)
         # res = p.get_page(request.GET.get('page', 1))
@@ -83,7 +87,10 @@ class CategoryFilter(ListView):
     paginate_by = 9
 
     def get_queryset(self):
-        qs = super(CategoryFilter, self).get_queryset()
+        qs = Post.objects.annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1)))).order_by(
+            '-date_time')
 
         # если метод POST - фильтруем по поиску
         if self.request.method == 'POST':
@@ -110,8 +117,13 @@ class NewsView(ListView):
     model = Post
     context_object_name = 'news'
     template_name = 'news.html'
-    ordering = '-date_time'
     paginate_by = 9
+
+    def get_queryset(self):
+        return Post.objects.annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1)))).order_by(
+            '-date_time')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -139,13 +151,16 @@ class PostView(FormMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # исправить, пройтись циклом
+        context['comment_count'] = Post.objects.filter(id=self.object.id).annotate(
+            count_comments=Count(Case(When(
+                comment__accepted=True, then=1))))[0].count_comments
         post_text = self.object.text.split("\n")
         # post_text = self.object.text
         context['post_text'] = post_text
         context['aside_posts'] = Post.objects.annotate(
             count_comments=Count(Case(When(
-                comment__accepted=True, then=1)))).order_by(
-            '-count_comments')[0:3]
+                comment__accepted=True, then=1)))).order_by('-count_comments')[0:3]
         context['post_comments'] = self.object.comment_set.all().order_by('-date_time')
         flag = False
         for cat in context['post'].categorys.all():

@@ -1,0 +1,20 @@
+{% extends "socialaccount/base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% if process == "connect" %}
+<h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+
+<p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
+{% else %}
+<h1 class="h1-white h1-white-margin-b">{% blocktrans with provider.name as provider %}Вход в аккаунт {{ provider }}{% endblocktrans %}</h1>
+
+
+<p>{% blocktrans with provider.name as provider %}Намжите "продолжить" чтобы зайти под аккаунтом {{ provider }}.{% endblocktrans %}</p>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <button class="inp-submit" type="submit">{% trans "Продолжить" %}</button>
+</form>
+{% endblock %}

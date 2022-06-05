@@ -160,7 +160,6 @@ class DownGradeView(LoginRequiredMixin, TemplateView):
         premium_group = Group.objects.get(name='author')
         if request.user.groups.filter(name='author').exists():
             premium_group.user_set.remove(current_user)
-        Author.objects.filter(user_id=int(current_user.pk)).delete()
         return redirect("/profile/")
 
 

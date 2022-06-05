@@ -8,6 +8,7 @@ Games Portal Статья
 
 {% block section %}
 <section class="white-section">
+    <p>{{test}}</p>
     <div class="post">
         <h1 class="h1-postnews-title h1-white">
             <p>{{post.title}}</p>
@@ -60,7 +61,7 @@ Games Portal Статья
             </p>
             <p>
                 <span class="post-author-conteiner-label">КОММЕНТАРИИ</span>
-                <span class="post-author-conteiner-content">{{post.comment_set.count}}</span>
+                <span class="post-author-conteiner-content">{{comment_count}}</span>
             </p>
         </div>
         <img

@@ -1,0 +1,24 @@
+{% extends "socialaccount/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+    <h1 class="h1-white h1-white-margin-b">{% trans "Регистрация" %}</h1>
+
+<p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}Почти все готово чтобы использовать ваш {{provider_name}} аккаунт для входа
+ на портал   <strong>GAMENEWS</strong>.</p>
+<p>Для  завершения регистрации  заполните пожалуйста форму{% endblocktrans %}</p>
+
+<br>
+<form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class = "inp-submit" type="submit">{% trans "Sign Up" %} &raquo;</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'default.html'%}
+
+
+    <title>{% block title %}Авторизация пользователя{% endblock title %}</title>
+
+{% block type_main %}
+<main class="container container-white" id="main">
+{% endblock type_main %}
+
+
+{% block section %}
+         {% block body %}
+<section class="white-section-100">
+<div class="forms-box">
+
+
+
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div>
+
+    </div>
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+        {% block pagination %}
+        {% endblock pagination %}
+    </section>
+    {% endblock section %}
+
+    {% block aside%}
+    {% endblock aside%}
